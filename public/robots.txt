@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Private pages (sign-in, dashboard, panel, payment) are not listed here — that
+# would advertise them. They carry <meta name="robots" content="noindex"> instead,
+# and access is enforced by the server.
+
+Sitemap: https://www.riviratech.com/sitemap.xml

@@ -1,0 +1,79 @@
+# riviratech Innovations — full stack: web (SPA) + api (Express) + assistant (FastAPI).
+#
+#   docker compose up --build
+#
+# Each service reads its secrets from its own .env file (NOT committed). The web
+# bundle bakes VITE_* at build time, so those are build args here, pointed at the
+# published api/chatbot origins in production.
+#
+# The api uses the external Supabase Postgres from api/.env. The assistant needs
+# its own Postgres — an optional `db` service is included below; point
+# assistant/.env at it (host: db) or at any other Postgres you run.
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        # In production set these to the real public origins (with trailing slash).
+        VITE_SERVER_URL: ${VITE_SERVER_URL:-http://localhost:4000/}
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:8080/}
+        VITE_CHATBOT_URL: ${VITE_CHATBOT_URL:-http://localhost:8000/}
+        VITE_TURNSTILE_SITE_KEY: ${VITE_TURNSTILE_SITE_KEY:-}
+    image: riviratech-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+    image: riviratech-api
+    env_file:
+      - ./api/.env
+    environment:
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    volumes:
+      # Persist uploaded files across container rebuilds.
+      - riviratech_uploads:/app/uploads
+    restart: unless-stopped
+
+  assistant:
+    build:
+      context: ./assistant
+    image: riviratech-assistant
+    env_file:
+      - ./assistant/.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      # Pre-downloaded MiniLM/Qwen model folders live outside the image.
+      - ./assistant/models:/app/models
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  # Optional local Postgres for the assistant. The api points at Supabase via
+  # api/.env, so it does NOT use this. Remove if you run Postgres elsewhere.
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-riviratech}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-riviratech}
+      POSTGRES_DB: ${POSTGRES_DB:-riviratech_assistant}
+    ports:
+      - "5432:5432"
+    volumes:
+      - riviratech_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  riviratech_uploads:
+  riviratech_pgdata:

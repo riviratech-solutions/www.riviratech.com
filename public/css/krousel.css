@@ -1,0 +1,205 @@
+/* Krousel — carousel styles (replaces swiper-bundle.min.css).
+   Base layout + animated-effect keyframes + nav/dots controls.
+   Slide visuals live in the page CSS (Head.css / Projects.css). */
+
+.krousel {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.krousel-track {
+	display: flex;
+	align-items: stretch;
+	will-change: transform;
+	user-select: none;
+}
+
+.krousel-slide {
+	flex-shrink: 0;
+	box-sizing: border-box;
+}
+
+.krousel-slide img {
+	max-width: 100%;
+	pointer-events: none;
+}
+
+/* =====================================================================
+   ANIMATED (one-at-a-time) engine — slides stacked in one grid cell so the
+   track auto-sizes to the tallest slide. --k-speed is set inline per instance.
+   ===================================================================== */
+.krousel--anim {
+	overflow: hidden;
+}
+
+.krousel--anim .krousel-track {
+	display: grid;
+	/* Single column pinned to the container width. Without this the implicit
+	   `auto` column sizes to the slide's max-content (the longest testimonial
+	   sentence), overflowing the container so text renders on one clipped line
+	   instead of wrapping. minmax(0,1fr) forces container-width, so it wraps. */
+	grid-template-columns: minmax(0, 1fr);
+	perspective: 1400px;
+}
+
+.krousel--anim .krousel-slide {
+	grid-area: 1 / 1;
+	width: 100%;
+	visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.krousel--anim .krousel-slide.is-active {
+	visibility: visible;
+}
+
+/* ---- fade ---- */
+@keyframes k-fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes k-fade-out { from { opacity: 1 } to { opacity: 0 } }
+.krousel-in-fade { animation: k-fade-in var(--k-speed, 500ms) both ease; }
+.krousel-out-fade { animation: k-fade-out var(--k-speed, 500ms) both ease; }
+
+/* ---- zoom ---- */
+@keyframes k-zoom-in { from { opacity: 0; transform: scale(.85) } to { opacity: 1; transform: scale(1) } }
+@keyframes k-zoom-out { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(1.15) } }
+.krousel-in-zoom { animation: k-zoom-in var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+.krousel-out-zoom { animation: k-zoom-out var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+
+/* ---- flip (3D) ---- */
+@keyframes k-flip-in { from { opacity: 0; transform: rotateY(-100deg) } to { opacity: 1; transform: rotateY(0) } }
+@keyframes k-flip-out { from { opacity: 1; transform: rotateY(0) } to { opacity: 0; transform: rotateY(100deg) } }
+.krousel-in-flip { animation: k-flip-in var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); transform-origin: center; }
+.krousel-out-flip { animation: k-flip-out var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); transform-origin: center; }
+
+/* ---- rotate ---- */
+@keyframes k-rotate-in { from { opacity: 0; transform: rotate(-12deg) scale(.88) } to { opacity: 1; transform: rotate(0) scale(1) } }
+@keyframes k-rotate-out { from { opacity: 1; transform: rotate(0) scale(1) } to { opacity: 0; transform: rotate(12deg) scale(.88) } }
+.krousel-in-rotate { animation: k-rotate-in var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+.krousel-out-rotate { animation: k-rotate-out var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+
+/* ---- bounce ---- */
+@keyframes k-bounce-in {
+	0% { opacity: 0; transform: scale(.3) }
+	40% { opacity: 1; transform: scale(1.08) }
+	65% { transform: scale(.94) }
+	82% { transform: scale(1.03) }
+	100% { transform: scale(1) }
+}
+@keyframes k-bounce-out { from { opacity: 1; transform: scale(1) } to { opacity: 0; transform: scale(.3) } }
+.krousel-in-bounce { animation: k-bounce-in var(--k-speed, 500ms) both; }
+.krousel-out-bounce { animation: k-bounce-out var(--k-speed, 500ms) both ease-in; }
+
+/* ---- page slide (horizontal) ---- */
+@keyframes k-slide-h-in { from { opacity: .35; transform: translateX(100%) } to { opacity: 1; transform: translateX(0) } }
+@keyframes k-slide-h-out { from { opacity: 1; transform: translateX(0) } to { opacity: .35; transform: translateX(-100%) } }
+.krousel-in-slide-h { animation: k-slide-h-in var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+.krousel-out-slide-h { animation: k-slide-h-out var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+
+/* ---- page slide (vertical) ---- */
+@keyframes k-slide-v-in { from { opacity: .35; transform: translateY(100%) } to { opacity: 1; transform: translateY(0) } }
+@keyframes k-slide-v-out { from { opacity: 1; transform: translateY(0) } to { opacity: .35; transform: translateY(-100%) } }
+.krousel-in-slide-v { animation: k-slide-v-in var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+.krousel-out-slide-v { animation: k-slide-v-out var(--k-speed, 500ms) both cubic-bezier(.4, 0, .2, 1); }
+
+/* =====================================================================
+   CONTROLS — arrows + dots
+   ===================================================================== */
+.krousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 9;
+	width: 44px;
+	height: 44px;
+	border: none;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, .92);
+	color: #1a1720;
+	box-shadow: 0 8px 22px rgba(20, 16, 8, .18);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22px;
+	line-height: 1;
+	transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.krousel-btn:hover {
+	background: linear-gradient(135deg, #f5c518, #e0a800);
+	color: #201a02;
+}
+
+.krousel-prev { left: 12px; }
+.krousel-next { right: 12px; }
+
+.krousel-prev:hover { transform: translateY(-50%) scale(1.08); }
+.krousel-next:hover { transform: translateY(-50%) scale(1.08); }
+
+.krousel-dots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin-top: 18px;
+}
+
+.krousel-dot {
+	width: 9px;
+	height: 9px;
+	padding: 0;
+	border: none;
+	border-radius: 50px;
+	background: #d9d3c6;
+	cursor: pointer;
+	transition: background .2s ease, width .2s ease;
+}
+
+.krousel-dot:hover {
+	background: #c7bfad;
+}
+
+.krousel-dot.is-active {
+	width: 26px;
+	background: linear-gradient(90deg, #f5c518, #e0a800);
+}
+
+@media (max-width: 600px) {
+	.krousel-btn { width: 38px; height: 38px; font-size: 19px; }
+	.krousel-prev { left: 6px; }
+	.krousel-next { right: 6px; }
+}
+
+/* =====================================================================
+   CONTINUOUS (smooth marquee) + CENTER FOCUS
+   --k-focus / --k-lift / --k-tilt are set per slide on every frame by
+   centerFocus (1 = centre). .krousel--center-fx is the built-in look;
+   pass centerFocus:{ effect:false } to style from the variables yourself.
+   ===================================================================== */
+.krousel--continuous .krousel-track {
+	transition: none;
+}
+
+.krousel--continuous {
+	cursor: grab;
+}
+
+.krousel--continuous:active {
+	cursor: grabbing;
+}
+
+.krousel--center-fx .krousel-slide {
+	transform: scale(calc(.84 + .16 * var(--k-focus, 1)));
+	opacity: calc(.45 + .55 * var(--k-focus, 1));
+	z-index: calc(1 + var(--k-focus, 1) * 10);
+	transform-origin: center;
+	will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.krousel--center-fx .krousel-slide {
+		transform: none;
+		opacity: 1;
+	}
+}

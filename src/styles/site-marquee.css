@@ -1,0 +1,119 @@
+/* Scrolling message strips (components/SiteMarquee.tsx). The message HTML is
+   styled by each message's own CSS, scoped to .smq-item-<id>. */
+
+.smq-header-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9; /* just under the fixed navigation bar (z-index 10) */
+}
+
+.smq {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  overflow: hidden;
+  color: #f8fafc;
+  background: linear-gradient(90deg, #0b1220 0%, #1e1b4b 50%, #0b1220 100%);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.smq-header {
+  border-bottom: 1px solid rgba(201, 146, 26, 0.45);
+  box-shadow: 0 6px 16px -10px rgba(15, 23, 42, 0.45);
+}
+.smq-footer {
+  border-top: 1px solid rgba(201, 146, 26, 0.45);
+}
+
+.smq-box {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  /* soft fade at both ends */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+}
+.smq-track {
+  display: flex;
+  width: max-content;
+  animation: smq-scroll 20s linear infinite;
+}
+.smq-right .smq-track {
+  animation-direction: reverse;
+}
+.smq-pause:hover .smq-track,
+.smq-pause:focus-within .smq-track {
+  animation-play-state: paused;
+}
+.smq-half {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+.smq-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  white-space: nowrap;
+}
+.smq-item::after {
+  content: "\2726"; /* ✦ between messages */
+  margin: 0 28px;
+  color: #e3b341;
+  font-size: 12px;
+}
+.smq-item a {
+  color: #fcd34d;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.smq-item p,
+.smq-item div,
+.smq-item h1, .smq-item h2, .smq-item h3, .smq-item h4, .smq-item h5, .smq-item h6 {
+  display: inline;
+  margin: 0;
+  font-size: inherit;
+}
+.smq-item img {
+  height: 22px;
+  width: auto;
+  vertical-align: middle;
+}
+
+@keyframes smq-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.smq-close {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin: 0 8px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  cursor: pointer;
+}
+.smq-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Visitors who ask for less motion: no scrolling, swipe to read instead. */
+@media (prefers-reduced-motion: reduce) {
+  .smq-track { animation: none; }
+  .smq-box { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .smq-half[aria-hidden="true"] { display: none; }
+}
+
+@media (max-width: 640px) {
+  .smq { font-size: 13.5px; min-height: 36px; }
+  .smq-item::after { margin: 0 20px; }
+}

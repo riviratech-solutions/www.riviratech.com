@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.riviratech.com/</loc><priority>1.0</priority></url>
+
+  <!-- Top-level sections -->
+  <url><loc>https://www.riviratech.com/programs</loc><priority>0.8</priority></url>
+  <url><loc>https://www.riviratech.com/services</loc><priority>0.8</priority></url>
+  <url><loc>https://www.riviratech.com/courses</loc><priority>0.8</priority></url>
+  <!-- The real page behind /projects and /poc, both of which redirect here. -->
+  <url><loc>https://www.riviratech.com/business</loc><priority>0.7</priority></url>
+  <url><loc>https://www.riviratech.com/workshop</loc><priority>0.7</priority></url>
+  <url><loc>https://www.riviratech.com/course-plan</loc><priority>0.7</priority></url>
+  <url><loc>https://www.riviratech.com/blogs</loc><priority>0.7</priority></url>
+  <url><loc>https://www.riviratech.com/faq</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/about</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/enroll</loc><priority>0.6</priority></url>
+
+  <!-- The GenAI Engineer program. Its own page, not a redirect, and it was
+       absent from this file until the 2026-09-01 QA report found it. -->
+  <url><loc>https://www.riviratech.com/program/generative-ai-engineer</loc><priority>0.8</priority></url>
+
+  <!-- Course pages -->
+  <url><loc>https://www.riviratech.com/ai-for-kids</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/ai-for-coders</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/ai-for-non-coders</loc><priority>0.6</priority></url>
+  <!-- The real page behind /ai-agents-automation, which redirects here. -->
+  <url><loc>https://www.riviratech.com/ai-stack</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/corporate-training</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/computer-vision-llms</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/fine-tuning-prompt-engineering</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/genai-for-business</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/foundations-of-ai</loc><priority>0.6</priority></url>
+  <url><loc>https://www.riviratech.com/rag-retrieval-systems</loc><priority>0.6</priority></url>
+
+  <!-- Legal. Each is its own page under /legal/:doc; the bare /legal redirects
+       to the first, so it is not listed. IDs come from legalDocs.ts. -->
+  <url><loc>https://www.riviratech.com/legal/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.riviratech.com/legal/terms-and-conditions</loc><priority>0.3</priority></url>
+  <url><loc>https://www.riviratech.com/legal/refund-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.riviratech.com/legal/accessibility</loc><priority>0.3</priority></url>
+  <url><loc>https://www.riviratech.com/legal/security</loc><priority>0.3</priority></url>
+  <url><loc>https://www.riviratech.com/events</loc><priority>0.7</priority></url>
+  <url><loc>https://www.riviratech.com/gallery</loc><priority>0.5</priority></url>
+  <url><loc>https://www.riviratech.com/careers</loc><priority>0.5</priority></url>
+</urlset>

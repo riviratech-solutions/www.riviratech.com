@@ -1,0 +1,129 @@
+Quick production run
+From your cloned project:
+
+
+cd /home/www.riviratech.com/api
+npm install
+
+
+Create .env
+cd /home/www.riviratech.com/api
+nano .env
+
+Secure the .env
+chmod 600 /home/www.riviratech.com/.env
+chmod 600 /home/www.riviratech.com/api/.env
+
+If you want to stop the app currently running on port 8000, use:
+
+sudo lsof -i :5000 -i :5001 -i :5002 -i :5171 -i :5172 -i :5173 -i :5174
+
+
+sudo lsof -i :5000
+sudo lsof -i :5001
+sudo lsof -i :5002
+sudo lsof -i :5171
+sudo lsof -i :5172
+sudo lsof -i :5173
+sudo lsof -i :5174
+
+Then stop the process:
+sudo kill -9 $(sudo lsof -t -i:8000)
+
+
+
+environment/config.
+Quick test
+
+cd /home/www.riviratech.com/api
+PORT=5001 NODE_ENV=production node server.js
+
+
+
+nano server.js
+
+
+
+First check the API logs:
+sudo journalctl -u riviratech-api -n 100 --no-pager
+
+sudo journalctl -u riviratech-api -n 30 --no-pager
+
+Recommended: run with systemd
+Create a service:
+sudo nano /etc/systemd/system/riviratech-api.service
+
+--------------------------------- production dev
+
+[Unit]
+Description=riviratech Node API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/www.riviratech.com/api
+Environment=NODE_ENV=dev
+Environment=PORT=5001
+EnvironmentFile=/home/www.riviratech.com/.env
+ExecStart=/usr/bin/node /home/www.riviratech.com/api/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+
+-------------------------------------------
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable riviratech-api
+sudo systemctl restart riviratech-api
+sudo systemctl status riviratech-api
+
+
+If you're running it through the systemd service we created earlier, use:
+sudo systemctl stop riviratech-api
+
+To prevent it from starting automatically:
+sudo systemctl disable riviratech-api
+
+Check:
+sudo systemctl status riviratech-api
+
+
+
+
+Check port:
+sudo lsof -i :5001
+
+sudo ufw allow 5001/tcp
+sudo ufw status
+
+
+
+
+
+sudo rm -rf /home/www.riviratech.git
+sudo mkdir www.riviratech.git
+
+sudo rm -rf /home/assistantgit
+sudo mkdir assistantgit
+
+cd /home/www.riviratech.git
+git init
+git pull https://github.com/somagarisudhakar/riviratech.git
+
+
+cd /home/assistantgit
+git init
+git pull https://github.com/somagarisudhakar/assistant.git
+
+
+
+copy everything from riviratechgit into riviratech, replacing existing files, use rsync:
+sudo rsync -av --progress /home/www.riviratech.git/ /home/www.riviratech.com/
+
+
+

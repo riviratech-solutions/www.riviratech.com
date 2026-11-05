@@ -1,0 +1,156 @@
+/* PhoneInput — country-code picker styles (replaces intl-tel-input CSS). */
+
+.pi-wrap {
+	position: relative;
+	display: block;
+}
+
+/* room for the flag button on the left of the number input */
+.pi-wrap > .form-control,
+.pi-wrap > input[type="text"] {
+	padding-left: 54px !important;
+}
+
+.pi-selected {
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	left: 1px;
+	width: 46px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	cursor: pointer;
+	user-select: none;
+	background: rgba(0, 0, 0, .03);
+	border-right: 1px solid rgba(0, 0, 0, .12);
+	border-radius: 7px 0 0 7px;
+	z-index: 2;
+}
+
+.pi-selected:hover {
+	background: rgba(0, 0, 0, .06);
+}
+
+.pi-selected:focus {
+	outline: none;
+	background: rgba(96, 37, 245, .10);
+}
+
+/* !important + flex-shrink guard: this is a drop-in plugin rendered inside
+   arbitrary host markup, and a page-level rule like `#modal .box img{width:...}`
+   (higher specificity) would otherwise stretch the flags. Lock the flag size. */
+.pi-flag-img {
+	width: 22px !important;
+	height: 16px !important;
+	min-width: 22px;
+	max-width: 22px;
+	flex: 0 0 auto;
+	object-fit: cover;
+	border-radius: 2px;
+	display: block;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .35);
+	margin: 0;
+}
+
+.pi-caret {
+	width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 5px solid #6b6b6b;
+	transition: transform .2s ease;
+}
+
+.pi-wrap.pi-open .pi-caret {
+	transform: rotate(180deg);
+}
+
+/* dropdown */
+.pi-dropdown {
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	z-index: 1050;
+	width: 320px;
+	max-width: 86vw;
+	background: #fff;
+	border: 1px solid #e6e6ee;
+	border-radius: 12px;
+	box-shadow: 0 16px 40px rgba(20, 15, 45, .16);
+	overflow: hidden;
+	display: none;
+}
+
+.pi-wrap.pi-open .pi-dropdown {
+	display: block;
+}
+
+/* not enough room below: open above the field (set by phoneinput.js) */
+.pi-wrap.pi-up .pi-dropdown {
+	top: auto;
+	bottom: calc(100% + 6px);
+}
+
+.pi-search {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #eee;
+	padding: 11px 14px;
+	font-size: 14px;
+	outline: none;
+	color: #2b2740;
+	background: #fafafd;
+}
+
+.pi-list {
+	list-style: none;
+	margin: 0;
+	padding: 6px 0;
+	max-height: 244px;
+	overflow-y: auto;
+}
+
+.pi-item {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	padding: 9px 14px;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+.pi-item:hover,
+.pi-item.pi-active {
+	background: #f3f0ff;
+}
+
+.pi-item .pi-name {
+	flex: 1;
+	color: #2b2740;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.pi-item .pi-dial-code {
+	color: #8b8798;
+	font-variant-numeric: tabular-nums;
+}
+
+.pi-divider {
+	height: 1px;
+	margin: 6px 0;
+	background: #eee;
+	list-style: none;
+}
+
+.pi-empty {
+	padding: 14px;
+	text-align: center;
+	color: #9a95ad;
+	font-size: 13px;
+	list-style: none;
+}

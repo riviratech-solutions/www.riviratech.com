@@ -1,0 +1,51 @@
+/* Panel list toolbars, bundled with the app (imported in main.tsx) so a change
+   reaches open tabs straight away and production gets a fresh, hashed file —
+   unlike public/css/panel.css, which a tab loads once and keeps.
+   Used by components/ListSearch.tsx, components/SavedAgo.tsx and every list
+   page's refresh button (.reload-btn). */
+/* ===== Saved panel lists (utils/listCache.ts) =====
+   "Saved 3 min ago" under each list's pagination, bottom right (components/SavedAgo.tsx),
+   and the refresh button on the dashboards and Testimonials. */
+.saved-ago-row { display: flex; justify-content: flex-end; padding: 1px 12px 9px; }
+.adb-hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.list-refresh-btn {
+  width: 40px; height: 40px; flex: none; display: inline-grid; place-items: center; cursor: pointer;
+  border-radius: 12px; border: 1px solid #e4e1fb; background: rgba(255, 255, 255, .85); color: var(--ad-brand);
+  box-shadow: 0 4px 14px rgba(var(--ad-brand-rgb), .08); transition: transform .2s, border-color .2s;
+}
+.list-refresh-btn:hover { transform: rotate(-35deg); border-color: #c4b5fd; }
+.list-refresh-btn:disabled { opacity: .5; cursor: default; transform: none; }
+.panel-dark .list-refresh-btn { background: #1e293b; border-color: #334155; color: #c4b5fd; }
+
+/* ===== List toolbar: search box + reload button (all admin list pages) =====
+   Search: components/ListSearch.tsx. Reload: any button with .reload-btn
+   (the StudentsInquiries style — solid purple, turns on hover). */
+.ls-search { display: flex; align-items: center; gap: 10px; flex: 1 1 280px; min-width: 220px; max-width: 440px; }
+.ls-box { position: relative; flex: 1; min-width: 0; }
+.ls-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+.ls-input {
+  width: 100%; height: 42px; padding: 0 14px 0 44px; font-size: 14.5px; color: #0f172a;
+  background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; outline: none;
+  transition: border-color .15s, box-shadow .15s, background .15s;
+}
+.ls-input::placeholder { color: #64748b; }
+.ls-input:focus { background: #fff; border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(var(--ad-brand-rgb), .15); }
+.ls-go {
+  width: 42px; height: 42px; flex: none; display: grid; place-items: center; cursor: pointer;
+  border-radius: 12px; border: 1px solid #d1d5db; background: #fff; color: #475569;
+  transition: border-color .15s, color .15s, background .15s, box-shadow .15s;
+}
+.ls-go:hover { border-color: #a78bfa; color: var(--ad-brand); background: #f5f3ff; box-shadow: 0 4px 12px rgba(var(--ad-brand-rgb), .12); }
+.ls-go:active { transform: scale(.96); }
+.reload-btn {
+  width: 42px; height: 42px; flex: none; display: inline-grid; place-items: center; cursor: pointer;
+  border: none; border-radius: 10px; background: var(--ad-brand); color: #fff;
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.reload-btn:hover { background: var(--ad-brand-2); transform: rotate(45deg); box-shadow: 0 6px 16px rgba(var(--ad-brand-rgb), .25); }
+.reload-btn:disabled { opacity: .55; cursor: default; transform: none; }
+.panel-dark .ls-input { background: #0f172a; border-color: #334155; color: #e2e8f0; }
+.panel-dark .ls-input:focus { background: #111c33; border-color: var(--ad-brand); }
+.panel-dark .ls-input::placeholder { color: #94a3b8; }
+.panel-dark .ls-go { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+.panel-dark .ls-go:hover { background: #2a2350; border-color: var(--ad-brand); color: #c4b5fd; }

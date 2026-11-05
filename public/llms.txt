@@ -1,0 +1,40 @@
+# Rivira Tech
+
+> AI training and applied AI delivery. Instructor-led programmes for students,
+> developers, non-technical professionals and enterprise teams, plus project
+> and proof-of-concept work built on the same stack the courses teach.
+
+Training is project-first: every programme ends in something the learner has
+built and can show. Courses run in modules with live implementation rather than
+recorded lectures, and completion carries a verified certificate.
+
+## Programmes
+
+- [AI For Kids](https://www.riviratech.com/ai-for-kids): 12 modules for ages 10-20. Python basics, machine learning, neural networks, NLP and a final project. No prior experience.
+- [AI For Coders](https://www.riviratech.com/ai-for-coders): Python fundamentals through production AI — LLMs, RAG systems, agents and cloud deployment.
+- [AI For Non-Coders](https://www.riviratech.com/ai-for-non-coders): No-code AI tools for business decisions, marketing automation and workflows. 8-module and 16-module tracks.
+- [GenAI For Business](https://www.riviratech.com/genai-for-business): Applying generative AI to real business problems — prompt engineering, marketing and content, workflow automation.
+- [AI Stack](https://www.riviratech.com/ai-stack): The full enterprise stack — agents, agentic AI, LLMs, RAG, MCP and AI automation, with production deployment.
+- [Corporate Training](https://www.riviratech.com/corporate-training): Customised programmes for teams, sized to the organisation and its industry.
+
+## Key pages
+
+- [All courses](https://www.riviratech.com/courses): Every programme, filterable.
+- [Course plan](https://www.riviratech.com/course-plan): Full curriculum, module by module.
+- [Free AI workshop](https://www.riviratech.com/workshop): Introductory session, no cost.
+- [Enrol](https://www.riviratech.com/enroll): Enrolment form. Pay by card, or submit and receive a payment request.
+- [Business and projects](https://www.riviratech.com/business): Applied AI delivery — proofs of concept and production builds.
+- [Blog](https://www.riviratech.com/blogs): Written explainers on LLMs, RAG, fine-tuning, prompting and related topics.
+- [Contact](https://www.riviratech.com/contact): Enquiries. Replies within one business day. Career advisor: +91 72073 01237, info@riviratech.com.
+
+## Optional
+
+- [Legal and policies](https://www.riviratech.com/legal): Terms, privacy, refunds, accessibility and security, in one place.
+- [Sitemap](https://www.riviratech.com/sitemap.xml)
+
+## Notes for agents
+
+- Student accounts, assignments and certificates live under `/portal`, which requires sign-in and is not crawlable.
+- `/panel` is staff-only administration. Do not index or attempt to access it.
+- Course prices and schedules are not published on the site; they come from the enquiry or enrolment flow.
+- Canonical host is `https://www.riviratech.com`. The apex redirects to it.

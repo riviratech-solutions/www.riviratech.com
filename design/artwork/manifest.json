@@ -1,0 +1,674 @@
+[
+ {
+  "name": "hero_home",
+  "out": "public/images/hero-home-card.webp",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "webp",
+  "quality": 84,
+  "transparent": false,
+  "size": [
+   1920,
+   1080
+  ],
+  "svg": "design/artwork/svg/hero_home.svg"
+ },
+ {
+  "name": "hero_about",
+  "out": "public/images/hero-about-card.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   800,
+   450
+  ],
+  "svg": "design/artwork/svg/hero_about.svg"
+ },
+ {
+  "name": "hero_projects",
+  "out": "public/images/hero-projects-card.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   800,
+   450
+  ],
+  "svg": "design/artwork/svg/hero_projects.svg"
+ },
+ {
+  "name": "hero_courses",
+  "out": "public/images/hero-courses-card.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   800,
+   450
+  ],
+  "svg": "design/artwork/svg/hero_courses.svg"
+ },
+ {
+  "name": "hero_events",
+  "out": "public/images/hero-events-card.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   800,
+   450
+  ],
+  "svg": "design/artwork/svg/hero_events.svg"
+ },
+ {
+  "name": "career",
+  "out": "public/images/career-card.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   800,
+   450
+  ],
+  "svg": "design/artwork/svg/career.svg"
+ },
+ {
+  "name": "corporate_training",
+  "out": "public/images/corporate-training-card.webp",
+  "w": 1120,
+  "h": 964,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   560,
+   482
+  ],
+  "svg": "design/artwork/svg/corporate_training.svg"
+ },
+ {
+  "name": "ai_for_coders",
+  "out": "public/images/ai-for-coders-card.webp",
+  "w": 1120,
+  "h": 964,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   560,
+   482
+  ],
+  "svg": "design/artwork/svg/ai_for_coders.svg"
+ },
+ {
+  "name": "foundations",
+  "out": "public/images/foundations-of-ai-card.webp",
+  "w": 1120,
+  "h": 964,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   560,
+   482
+  ],
+  "svg": "design/artwork/svg/foundations.svg"
+ },
+ {
+  "name": "genai_business",
+  "out": "public/images/genai-for-business-card.webp",
+  "w": 1120,
+  "h": 964,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   560,
+   482
+  ],
+  "svg": "design/artwork/svg/genai_business.svg"
+ },
+ {
+  "name": "counseling",
+  "out": "public/images/counseling-3d-advisor.png",
+  "w": 896,
+  "h": 572,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   448,
+   286
+  ],
+  "svg": "design/artwork/svg/counseling.svg"
+ },
+ {
+  "name": "page_not_found",
+  "out": "public/images/pagenotfound.png",
+  "w": 1536,
+  "h": 1024,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1536,
+   1024
+  ],
+  "svg": "design/artwork/svg/page_not_found.svg"
+ },
+ {
+  "name": "login_side",
+  "out": "public/images/login_side.png",
+  "w": 1024,
+  "h": 853,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1024,
+   853
+  ],
+  "svg": "design/artwork/svg/login_side.svg"
+ },
+ {
+  "name": "male_pic",
+  "out": "public/images/malepic.jpg",
+  "w": 512,
+  "h": 512,
+  "fmt": "jpeg",
+  "quality": 90,
+  "transparent": false,
+  "size": [
+   225,
+   225
+  ],
+  "svg": "design/artwork/svg/male_pic.svg"
+ },
+ {
+  "name": "female_pic",
+  "out": "public/images/femalepic.jpg",
+  "w": 512,
+  "h": 512,
+  "fmt": "jpeg",
+  "quality": 90,
+  "transparent": false,
+  "size": [
+   225,
+   225
+  ],
+  "svg": "design/artwork/svg/female_pic.svg"
+ },
+ {
+  "name": "signin_people",
+  "out": "public/images/signinpeoples.png",
+  "w": 1536,
+  "h": 1024,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1536,
+   1024
+  ],
+  "svg": "design/artwork/svg/signin_people.svg"
+ },
+ {
+  "name": "signin_bg",
+  "out": "public/images/signinbg.png",
+  "w": 1474,
+  "h": 1067,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1474,
+   1067
+  ],
+  "svg": "design/artwork/svg/signin_bg.svg"
+ },
+ {
+  "name": "liveclass_art",
+  "out": "public/images/liveclass-selection-art.png",
+  "w": 736,
+  "h": 196,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   368,
+   98
+  ],
+  "svg": "design/artwork/svg/liveclass_art.svg"
+ },
+ {
+  "name": "trainer_icon",
+  "out": "public/images/trainer-icon.png",
+  "w": 92,
+  "h": 80,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   46,
+   40
+  ],
+  "svg": "design/artwork/svg/trainer_icon.svg"
+ },
+ {
+  "name": "id_bg1",
+  "out": "public/images/idbg1.png",
+  "w": 640,
+  "h": 646,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   320,
+   323
+  ],
+  "svg": "design/artwork/svg/id_bg1.svg"
+ },
+ {
+  "name": "id_bg2",
+  "out": "public/images/idbg2.png",
+  "w": 2980,
+  "h": 1773,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   2980,
+   1773
+  ],
+  "svg": "design/artwork/svg/id_bg2.svg"
+ },
+ {
+  "name": "logo_dark",
+  "out": "public/images/logo_mark_dark.png",
+  "w": 948,
+  "h": 418,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   948,
+   418
+  ],
+  "svg": "design/artwork/svg/logo_dark.svg"
+ },
+ {
+  "name": "logo_white",
+  "out": "public/images/logo_transparent.png",
+  "w": 1839,
+  "h": 790,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   1839,
+   790
+  ],
+  "svg": "design/artwork/svg/logo_white.svg"
+ },
+ {
+  "name": "logo_footer",
+  "out": "public/images/flogo.png",
+  "w": 1838,
+  "h": 781,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   1838,
+   781
+  ],
+  "svg": "design/artwork/svg/logo_footer.svg"
+ },
+ {
+  "name": "stamp",
+  "out": "public/certicates/rivira-stamp.png",
+  "w": 800,
+  "h": 800,
+  "fmt": "png",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   800,
+   800
+  ],
+  "svg": "design/artwork/svg/stamp.svg"
+ },
+ {
+  "name": "page_about",
+  "out": "public/images/pages/about.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_about.svg"
+ },
+ {
+  "name": "page_projects",
+  "out": "public/images/pages/projects.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_projects.svg"
+ },
+ {
+  "name": "page_courses",
+  "out": "public/images/pages/courses.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_courses.svg"
+ },
+ {
+  "name": "page_events",
+  "out": "public/images/pages/events.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_events.svg"
+ },
+ {
+  "name": "page_careers",
+  "out": "public/images/pages/careers.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_careers.svg"
+ },
+ {
+  "name": "page_program",
+  "out": "public/images/pages/program.webp",
+  "w": 1920,
+  "h": 1080,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_program.svg"
+ },
+ {
+  "name": "page_coders",
+  "out": "public/images/pages/coders.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_coders.svg"
+ },
+ {
+  "name": "page_kids",
+  "out": "public/images/pages/kids.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_kids.svg"
+ },
+ {
+  "name": "page_nocode",
+  "out": "public/images/pages/nocode.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_nocode.svg"
+ },
+ {
+  "name": "page_business",
+  "out": "public/images/pages/business.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_business.svg"
+ },
+ {
+  "name": "page_stack",
+  "out": "public/images/pages/stack.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_stack.svg"
+ },
+ {
+  "name": "page_corporate",
+  "out": "public/images/pages/corporate.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_corporate.svg"
+ },
+ {
+  "name": "page_contact",
+  "out": "public/images/pages/contact.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_contact.svg"
+ },
+ {
+  "name": "page_legal",
+  "out": "public/images/pages/legal.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_legal.svg"
+ },
+ {
+  "name": "page_blog",
+  "out": "public/images/pages/blog.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_blog.svg"
+ },
+ {
+  "name": "page_faq",
+  "out": "public/images/pages/faq.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_faq.svg"
+ },
+ {
+  "name": "page_certificate",
+  "out": "public/images/pages/certificate.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_certificate.svg"
+ },
+ {
+  "name": "page_checkout",
+  "out": "public/images/pages/checkout.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_checkout.svg"
+ },
+ {
+  "name": "page_gallery",
+  "out": "public/images/pages/gallery.webp",
+  "w": 1600,
+  "h": 900,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   1200,
+   675
+  ],
+  "svg": "design/artwork/svg/page_gallery.svg"
+ },
+ {
+  "name": "home_laptop",
+  "out": "public/images/home/hero-laptop.webp",
+  "w": 1200,
+  "h": 1000,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   900,
+   750
+  ],
+  "svg": "design/artwork/svg/home_laptop.svg"
+ },
+ {
+  "name": "home_team",
+  "out": "public/images/home/about-team.webp",
+  "w": 1100,
+  "h": 800,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": false,
+  "size": [
+   880,
+   640
+  ],
+  "svg": "design/artwork/svg/home_team.svg"
+ },
+ {
+  "name": "home_career",
+  "out": "public/images/home/career.webp",
+  "w": 1100,
+  "h": 820,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   880,
+   656
+  ],
+  "svg": "design/artwork/svg/home_career.svg"
+ },
+ {
+  "name": "home_faq",
+  "out": "public/images/home/faq-bubbles.webp",
+  "w": 760,
+  "h": 600,
+  "fmt": "webp",
+  "quality": 86,
+  "transparent": true,
+  "size": [
+   570,
+   450
+  ],
+  "svg": "design/artwork/svg/home_faq.svg"
+ }
+]

@@ -1,0 +1,131 @@
+/* =============================================================
+   Wow — scroll-reveal animations (pairs with public/js/wow.js).
+   Replaces aos.css. Elements are hidden ONLY under html.wow-ready, which the
+   engine sets when it can animate — so if JS fails, content stays visible.
+   ============================================================= */
+
+/* ---------- base hidden state (only when the engine is ready) ---------- */
+.wow-ready [data-aos],
+.wow-ready [data-wow],
+.wow-ready .wow {
+  opacity: 0;
+  transition-property: opacity, transform, filter, clip-path;
+  transition-duration: .7s;
+  transition-timing-function: cubic-bezier(.5, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+/* ---------- revealed state (JS adds .aos-animate / .wow-in) ---------- */
+.wow-ready [data-aos].aos-animate,
+.wow-ready [data-wow].aos-animate,
+.wow-ready .wow.wow-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================================
+   EFFECT LIBRARY — initial (hidden) transforms, keyed on the animation name.
+   The revealed state above resets transform to none, so each just needs its
+   starting offset here.
+   ========================================================================= */
+
+/* ---- fade ---- */
+.wow-ready [data-aos="fade-up"],    .wow-ready [data-wow="fade-up"]    { transform: translateY(48px); }
+.wow-ready [data-aos="fade-down"],  .wow-ready [data-wow="fade-down"]  { transform: translateY(-48px); }
+.wow-ready [data-aos="fade-left"],  .wow-ready [data-wow="fade-left"]  { transform: translateX(48px); }
+.wow-ready [data-aos="fade-right"], .wow-ready [data-wow="fade-right"] { transform: translateX(-48px); }
+.wow-ready [data-aos="fade-in"],    .wow-ready [data-wow="fade-in"]    { transform: none; }
+.wow-ready [data-aos="fade-up-right"]   { transform: translate3d(-42px, 42px, 0); }
+.wow-ready [data-aos="fade-up-left"]    { transform: translate3d(42px, 42px, 0); }
+.wow-ready [data-aos="fade-down-right"] { transform: translate3d(-42px, -42px, 0); }
+.wow-ready [data-aos="fade-down-left"]  { transform: translate3d(42px, -42px, 0); }
+
+/* ---- zoom ---- */
+.wow-ready [data-aos="zoom-in"],       .wow-ready [data-wow="zoom-in"]       { transform: scale(.6); }
+.wow-ready [data-aos="zoom-out"],      .wow-ready [data-wow="zoom-out"]      { transform: scale(1.18); }
+.wow-ready [data-aos="zoom-in-up"]     { transform: translateY(48px) scale(.6); }
+.wow-ready [data-aos="zoom-in-down"]   { transform: translateY(-48px) scale(.6); }
+.wow-ready [data-aos="zoom-in-left"]   { transform: translateX(48px) scale(.6); }
+.wow-ready [data-aos="zoom-in-right"]  { transform: translateX(-48px) scale(.6); }
+.wow-ready [data-aos="zoom-out-up"]    { transform: translateY(48px) scale(1.18); }
+.wow-ready [data-aos="zoom-out-down"]  { transform: translateY(-48px) scale(1.18); }
+.wow-ready [data-aos="zoom-out-left"]  { transform: translateX(48px) scale(1.18); }
+.wow-ready [data-aos="zoom-out-right"] { transform: translateX(-48px) scale(1.18); }
+
+/* ---- flip (3D) ---- */
+.wow-ready [data-aos^="flip-"] { backface-visibility: hidden; }
+.wow-ready [data-aos="flip-up"],    .wow-ready [data-wow="flip-up"]    { transform: perspective(2500px) rotateX(-100deg); }
+.wow-ready [data-aos="flip-down"]   { transform: perspective(2500px) rotateX(100deg); }
+.wow-ready [data-aos="flip-left"],  .wow-ready [data-wow="flip-left"]  { transform: perspective(2500px) rotateY(-100deg); }
+.wow-ready [data-aos="flip-right"]  { transform: perspective(2500px) rotateY(100deg); }
+
+/* ---- slide (full-distance, no fade) ---- */
+.wow-ready [data-aos^="slide-"] { opacity: 1; }
+.wow-ready [data-aos="slide-up"]    { transform: translateY(100%); }
+.wow-ready [data-aos="slide-down"]  { transform: translateY(-100%); }
+.wow-ready [data-aos="slide-left"]  { transform: translateX(100%); }
+.wow-ready [data-aos="slide-right"] { transform: translateX(-100%); }
+
+/* =========================================================================
+   UPGRADED EFFECTS (new — not in the original AOS set)
+   ========================================================================= */
+
+/* blur-in */
+.wow-ready [data-aos="blur-in"],  .wow-ready [data-wow="blur-in"]  { filter: blur(14px); transform: scale(1.02); }
+.wow-ready [data-aos="blur-in"].aos-animate, .wow-ready [data-wow="blur-in"].wow-in { filter: blur(0); }
+
+/* rotate-in */
+.wow-ready [data-aos="rotate-in"], .wow-ready [data-wow="rotate-in"] { transform: rotate(-9deg) scale(.9); transform-origin: center; }
+
+/* reveal wipes (clip-path) */
+.wow-ready [data-aos="reveal-up"],   .wow-ready [data-wow="reveal-up"]   { clip-path: inset(0 0 100% 0); transform: translateY(14px); }
+.wow-ready [data-aos="reveal-down"], .wow-ready [data-wow="reveal-down"] { clip-path: inset(100% 0 0 0); transform: translateY(-14px); }
+.wow-ready [data-aos="reveal-left"], .wow-ready [data-wow="reveal-left"] { clip-path: inset(0 0 0 100%); }
+.wow-ready [data-aos="reveal-right"],.wow-ready [data-wow="reveal-right"]{ clip-path: inset(0 100% 0 0); }
+.wow-ready [data-aos^="reveal-"].aos-animate,
+.wow-ready [data-wow^="reveal-"].wow-in { clip-path: inset(0 0 0 0); }
+
+/* bounce-in (keyframe-driven, so it can overshoot) */
+.wow-ready [data-aos="bounce-in"], .wow-ready [data-wow="bounce-in"] { transform: scale(.3); }
+.wow-ready [data-aos="bounce-in"].aos-animate,
+.wow-ready [data-wow="bounce-in"].wow-in {
+  animation: wow-bounce-in .8s cubic-bezier(.22, 1.15, .36, 1) both;
+}
+@keyframes wow-bounce-in {
+  0%   { opacity: 0; transform: scale(.3); }
+  55%  { opacity: 1; transform: scale(1.06); }
+  74%  { transform: scale(.96); }
+  88%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================================
+   "rise" — the calm, professional reveal used across the website by
+   src/utils/autoReveal.ts: a short lift + fade, no scaling or blur.
+   ========================================================================= */
+.wow-ready [data-aos="rise"], .wow-ready [data-wow="rise"] { transform: translate3d(0, 28px, 0); }
+/* phones: website.css switches [data-aos] animation off below 768px; the
+   auto-revealed blocks keep a lighter version */
+@media (max-width: 767px) {
+  .wow-ready [data-reveal="auto"]:not(.aos-animate) { opacity: 0 !important; transform: translate3d(0, 16px, 0) !important; }
+  .wow-ready [data-reveal="auto"] {
+    transition: opacity .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1) !important;
+  }
+}
+
+/* =========================================================================
+   Accessibility failsafe — if the user prefers reduced motion, never hide or
+   move anything (the engine also skips hiding, this is belt-and-suspenders).
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos],
+  [data-wow],
+  .wow {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

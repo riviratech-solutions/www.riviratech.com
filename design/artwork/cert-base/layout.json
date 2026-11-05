@@ -1,0 +1,98 @@
+{
+ "Certificate of Completion.png": [
+  {
+   "box": [
+    34,
+    48,
+    292,
+    202
+   ],
+   "overlay": "lockup"
+  },
+  {
+   "box": [
+    538,
+    72,
+    1106,
+    106
+   ],
+   "overlay": "header"
+  },
+  {
+   "box": [
+    300,
+    945,
+    610,
+    977
+   ],
+   "overlay": "director-serif"
+  }
+ ],
+ "Certificate of Bootcamp Participation.png": [
+  {
+   "box": [
+    34,
+    48,
+    292,
+    202
+   ],
+   "overlay": "lockup"
+  },
+  {
+   "box": [
+    538,
+    72,
+    1106,
+    106
+   ],
+   "overlay": "header"
+  },
+  {
+   "box": [
+    300,
+    945,
+    610,
+    977
+   ],
+   "overlay": "director-serif"
+  }
+ ],
+ "Certificate of Kids Completion.png": [
+  {
+   "box": [
+    608,
+    24,
+    914,
+    156
+   ],
+   "overlay": "lockup-center"
+  },
+  {
+   "box": [
+    128,
+    444,
+    220,
+    542
+   ],
+   "overlay": "mini-mark"
+  },
+  {
+   "box": [
+    1224,
+    446,
+    1310,
+    526
+   ],
+   "overlay": "mini-mark"
+  },
+  {
+   "box": [
+    312,
+    926,
+    572,
+    962
+   ],
+   "overlay": "director-sans"
+  }
+ ]
+}

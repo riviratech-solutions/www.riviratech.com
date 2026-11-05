@@ -1,0 +1,24 @@
+# Frontend build context — keep it small and never ship secrets/deps.
+node_modules
+dist
+.git
+.gitignore
+.env
+.env.*
+*.log
+npm-debug.log*
+
+# Backend + assistant have their own images/build contexts.
+api
+assistant
+docs
+
+# Editor / OS cruft
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Windows launcher scripts — not needed in the image.
+*.bat
+*.command

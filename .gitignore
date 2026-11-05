@@ -1,0 +1,70 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+dbinfo.txt
+
+# website
+node_modules
+dist
+dust
+scratch
+dist-ssr
+*.local
+
+# api Uploaded files live on the server's disk now (admin/uploads) — don't commit them
+api/uploads/
+api/docs/
+
+# assistant
+assistant
+assistant/*
+
+docs/*
+
+# Dependencies (node_modules is matched globally above; listed for clarity)
+api/node_modules/
+
+# Large ML model weights — too big for git
+model.safetensors
+*.safetensors
+*.bin
+*.gguf
+*.pt
+*.onnx
+
+# Database backups
+db_backup/
+**/db_backup/
+*.sql
+*.dump
+
+# Secrets — NEVER commit env files (contain AWS/Stripe/DB/email credentials)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Google service-account / OAuth key files (private keys)
+**/google-drive-*.json

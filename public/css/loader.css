@@ -1,0 +1,161 @@
+html.booting, html.booting body { background: #08080c; }
+#rt-loader { position: fixed; inset: 0; z-index: 10000; background: #08080c; }
+/* Rivira Tech site loader — styles for #rt-loader (the boot loader, markup in
+   index.html) and .rt-brain-loader (the same loader shown by the app, see
+   components/BrainLoader.tsx). Animation: /js/neuralbrain.js. */
+
+:is(#rt-loader, .rt-brain-loader) {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 520px at 50% 42%, rgba(30, 58, 138, 0.38) 0%, rgba(15, 23, 62, 0.18) 45%, transparent 75%),
+    radial-gradient(1400px 900px at 50% 50%, #0a1433 0%, #050a1f 60%, #02040f 100%);
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+:is(#rt-loader, .rt-brain-loader).is-exiting {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* the artwork is about as wide as it is tall: fit both dimensions */
+  width: min(94vw, 680px, calc(100vh - 60px));
+  container-type: inline-size;
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-brain {
+  display: block;
+  max-width: 400px;
+  aspect-ratio: 680 / 500;
+}
+
+/* ---- wordmark ---- */
+:is(#rt-loader, .rt-brain-loader) .kl-brand {
+  position: relative;
+  margin-top: 40px;
+  margin-top: 6cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", "Poppins", "Segoe UI", sans-serif;
+  user-select: none;
+  opacity: 0;
+  animation: kl-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s forwards;
+}
+
+@keyframes kl-rise {
+  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+/* soft blue reflection under the wordmark */
+:is(#rt-loader, .rt-brain-loader) .kl-brand::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 120%;
+  height: 120%;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.22), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* sized against the loader width (cqw) so it keeps the artwork proportions;
+   the px values are the fallback for browsers without container units */
+:is(#rt-loader, .rt-brain-loader) .kl-main {
+  display: flex;
+  gap: 0.3em;
+  font-size: 56px;
+  font-size: 10.4cqw;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  padding-left: 0.2em; /* balance the letter-spacing */
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-mark {
+  color: #f8fbff;
+  text-shadow: 0 0 18px rgba(147, 197, 253, 0.45), 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+/* logo blue → silver gradient with a light sweep running across it */
+:is(#rt-loader, .rt-brain-loader) .kl-genai {
+  position: relative;
+  background: linear-gradient(90deg, #5AA9F0 0%, #2F6FC0 45%, #B7BBBF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgba(90, 169, 240, 0.5));
+}
+:is(#rt-loader, .rt-brain-loader) .kl-genai::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.95) 50%, transparent 60%, transparent 100%);
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: kl-shine 2.4s ease-in-out 0.9s infinite;
+}
+@keyframes kl-shine {
+  0%        { background-position: 150% 0; }
+  60%, 100% { background-position: -50% 0; }
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-sub {
+  margin-top: 14px;
+  margin-top: 2.2cqw;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  gap: 3.7cqw;
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-sub-text {
+  padding-left: 0.78em; /* balance the letter-spacing */
+  font-size: 19px;
+  font-size: 3.5cqw;
+  font-weight: 500;
+  letter-spacing: 0.78em;
+  color: rgba(226, 232, 240, 0.86);
+}
+
+:is(#rt-loader, .rt-brain-loader) .kl-line {
+  width: 64px;
+  width: 11cqw;
+  height: 1.5px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  animation: kl-line 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.75s forwards;
+}
+:is(#rt-loader, .rt-brain-loader) .kl-line.left {
+  background: linear-gradient(90deg, transparent, #60a5fa);
+  transform-origin: right center;
+}
+:is(#rt-loader, .rt-brain-loader) .kl-line.right {
+  background: linear-gradient(90deg, #a78bfa, transparent);
+  transform-origin: left center;
+}
+@keyframes kl-line {
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(#rt-loader, .rt-brain-loader) .kl-brand,
+  :is(#rt-loader, .rt-brain-loader) .kl-line { animation: none; opacity: 1; transform: none; filter: none; }
+  :is(#rt-loader, .rt-brain-loader) .kl-genai::after { animation: none; }
+}
