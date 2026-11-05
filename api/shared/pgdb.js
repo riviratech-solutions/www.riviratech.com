@@ -22,8 +22,13 @@ types.setTypeParser(1700, (v) => (v === null ? null : parseFloat(v)));
 
 const useUrl = !!process.env.DATABASE_URL;
 const host = process.env.DATABASE_HOST || "";
-const isLocal = !useUrl && ["127.0.0.1", "localhost", "::1"].includes(host);
+const isLocal = useUrl
+  ? /(@|\/\/)(127\.0\.0\.1|localhost|\[::1\]|::1)[:/]/.test(process.env.DATABASE_URL)
+  : ["127.0.0.1", "localhost", "::1"].includes(host);
 const isProduction = process.env.NODE_ENV === "production";
+// Enable SSL for any REMOTE database (e.g. Supabase, which refuses non-SSL
+// connections), not only in production — a local Postgres stays plain.
+const useSsl = isProduction || !isLocal;
 
 // Connections per process. In a cluster (../cluster.js) every API copy has its
 // own pool, so each takes fewer: 4 copies x 6 + the mail sender's 3 stays well
@@ -36,7 +41,7 @@ const pool = new Pool(
   useUrl
     ? {
         connectionString: process.env.DATABASE_URL,
-        ssl: isProduction ? { rejectUnauthorized: false } : false,
+        ssl: useSsl ? { rejectUnauthorized: false } : false,
         max: POOL_MAX,
         keepAlive: true,
         idleTimeoutMillis: 30000,
@@ -48,7 +53,7 @@ const pool = new Pool(
         user: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME,
-        ssl: isProduction ? { rejectUnauthorized: false } : false,
+        ssl: useSsl ? { rejectUnauthorized: false } : false,
         max: POOL_MAX,
         keepAlive: true,
         idleTimeoutMillis: 30000,
